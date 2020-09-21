@@ -1,4 +1,9 @@
 <h3 class="text-danger">You can not access without login</h3>
 <p>portal works!</p>
 <p>Private pages: dashboard, manage account, profile... </p>
-<a class="btn btn-primary btn-sm" (click)="_auth.logout()">Logout</a>
+<h3 class="text-info">My profile</h3>
+<strong>First name</strong> : {{profile.first_name}} <br/>
+<strong>Last name</strong> : {{profile.last_name}}
+<div class="d-block">
+    <a class="btn btn-primary btn-sm" (click)="_auth.logout()">Logout</a>
+</div>
