@@ -1,0 +1,48 @@
+<div class="login-box">
+  <div class="login-logo">
+    <img src="../../../../assets/img/logo.png" style="width: 100%"/>
+    <a routerLink="/">Landing page</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg text-orange">Sign in to start your session</p>
+
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text input-group-text-custom"><i class="fa fa-envelope" style="font-size: 16px"></i></span>
+          </div>
+          <input type="email" required email class="form-control placehoder-orange border-orange" placeholder="Email" [(ngModel)]="account.email" name="emailLogin" #emailLogin="ngModel" [ngClass]="{ 'is-invalid': (emailLogin.dirty || emailLogin.touched || f.submitted ) && emailLogin.invalid }">
+          <div *ngIf="emailLogin.invalid && (emailLogin.dirty || emailLogin.touched || f.submitted )" class="invalid-feedback">
+            <div class="text-orange" *ngIf="emailLogin.errors.required">Email is required</div>
+            <div class="text-orange" *ngIf="emailLogin.errors.email">Email is invalid</div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text input-group-text-custom"><i class="fa fa-lock" style="font-size: 25px"></i></span>
+          </div>
+          <input type="password" required minlength="6" class="form-control placehoder-orange border-orange" placeholder="Password" [(ngModel)]="account.password" name="password" #password="ngModel" [ngClass]="{ 'is-invalid': (password.dirty || password.touched || f.submitted ) && password.invalid }">
+          <div *ngIf="password.invalid && (password.dirty || password.touched || f.submitted )" class="invalid-feedback">
+            <div class="text-orange" *ngIf="password.errors.required">Password is required</div>
+            <div class="text-orange" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <p class="mb-1">
+        <a routerLink="/forgot-password">I forgot my password</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
